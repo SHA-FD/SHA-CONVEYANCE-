@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SHA - CONVEYANCE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+    .navbar-brand img {
+            height: 150px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+    .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+    .dropdown-menu {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+    .dropdown:hover.dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+    .scrollspy-example {
+            height: 200px;
+            overflow-y: scroll;
+            transition: background-color 0.3s ease;
+        }
+    .scrollspy-example:hover {
+            background-color: #f5f5f5;
+        }
+        #home {
+            background-image: url('assets/slanted-gradient.svg');
+            background-size: cover;
+            background-position: center;
+        }
+        h5 {
+            font-size: 1.5rem;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        [data-aos] {
+            opacity: 0;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+        [data-aos="fade-left"] {
+            animation-name: fadeInLeft;
+        }
+        [data-aos="fade-right"] {
+            animation-name: fadeInRight;
+        }
+        [data-aos="fade-up"] {
+            animation-name: fadeInUp;
+        }
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    .btn-brand-me-2 {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    .btn-brand-me-2:hover {
+            background-color: #0056b3;
+        }
+        #about{
+            background-image: url('assets/slanted-gradient.svg');
+            font-size: xx-large;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding:2rem;
+        }
+        #about .image{
+            width: auto;
+            height: auto;
+            justify-content: center;
+        }
+        #about .content{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 60%;
+        }
+       
+             
+              #about .image{            width: auto;            height: auto;            justify-content: center;        }        #about .content{          font-family: Arial, Helvetica, sans-serif;          font-size:1rem;          font-weight: bold;            width: 60%;        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/Messenger_creation_64769604 - 493D - 4492 - 94DA - 53A331FEDA22.jpeg" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">SERVICES </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reviews">REVIEWS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tresdev">TRESDEV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="LogOut.html">LOGOUT</a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#map">MAP</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false"></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#scrollspyHeading3">HOME</a></li>
+                            <li><a class="dropdown-item" href="#scrollspyHeading4">ABOUT</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#scrollspyHeading5">SERVICES</a></li>
+                            <li><a class="dropdown-item" href="#scrollspyheading6">REVIEWS</a></li>
+                            <li><a class="dropdown-item" href="#scrollspyheading7">CONTACT</a></li>
+                            <li><a class="dropdown-item" href="#scrollspyheading8">TRESDEV</a></li>
+                        <li><a class="dropdown-item" href="#scrollspyheading9">LOGOUT</a></li>
+                        <li><a class="dropdown-item" href="#scrollspyheading10">Map</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="home" class="min-vh-100 d-flex align-items-center text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 data-aos="fade-left" class="text-uppercase text-white fw-normal display-1">Welcome to SHA - CONVEYANCE</h1>
+                    <h5 class="text-white mt-3 mb-4" data-aos="fade-right">"We're your personal guide to the vibrant world of street markets, helping you find the best street vendors and farmers markets in your area. "</h5>
+                    <div data-aos="fade-up" data-aos-delay="50">
+                        <a href="#about" class="btn btn-brand-me-2">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <section id="about" class="min-vh-100 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                </div>
+                <div class="image">
+                  <img src="assets/image.png" alt="">
+                    <div class="content">
+                      <h3>What make's SHA-CONVEYANCE special?</h3>
+                      <p>SHA-CONVEYANCE is a platform that connects travelers and locals farmers and  street vendors selling seasonal fruits and  fresh produce vegetables. It features a directory of street stalls selling fruits and vegetables, and a grocery shop where local farmers can sell their freshly picked goods.  This makes it a convenient way to find delicious, healthy food while supporting local farmers.</p>
+                      <p>Are you also craving a delicious snack or fresh produce? SHA-CONVEYANCE is your one-stop shop.  Our platform lets you easily locate nearby street food stalls and order fresh farm goods for delivery.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="50">
+                        <a href="#services" class="btn btn-brand-me-2">Learn more</a>
+                           </section>
+                               <section id="map" class="min-vh-100 d-flex align-items-center text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 data-aos="fade-left" class="text-uppercase text-white fw-normal display-1"></h1>
+                    <div id="map" style="height: 400px;"></div>
+                    <div data-aos="fade-up" data-aos-delay="50">
+                        <a href="#service" class="btn btn-brand-me-2"></a>
+                </div>
+            </div>
+        </div>
+        </div>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+       <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+         class LeafletMap {
+            constructor(containerId, center, zoom) {
+              this.map = L.map(containerId).setView(center, zoom);
+              this.initTileLayer();
+           }
+           initTileLayer() {
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(this.map);
+         }
+         addMarker(lat, lng, message) {
+           const marker = L.marker([lat, lng]).addTo(this.map);
+           marker.bindPopup(message);
+         }
+         loadMarkersFromJson(url) {
+             fetch(url)
+             .then(response => response.json())
+             .then(data => {
+            data.forEach(marker => {
+                this.addMarker(marker.latitude, marker.longitude, marker.message);
+             });
+             })
+        .catch(error => console.error('Error loading markers:', error));
+         }
+        }
+        const myMap = new LeafletMap('map', [8.360004, 124.868419], 14);
+        myMap.addMarker(8.3779544, 124.9359216, 'Kahada Fruit Stand') 
+        myMap.addMarker(8.377851, 124.936196, "Sydney Fruit Stand")
+        myMap.addMarker(8.3780386, 124.9364632, "Bacalso Fruit Stand")
+        myMap.addMarker(8.3728429, 124.9536609, "Jaquilmamac store and eatery")
+        myMap.addMarker(8.3725853, 124.9806337, "Kurbada Cafe")
+        myMap.addMarker(8.3780386, 124.9364632, "Fruit Stand near signage")
+        myMap.addMarker(8.3762556, 124.9440865, "Elarmo Sweet Corn")
+        myMap.addMarker(8.3781051, 124.9367306, "maligyaay marang")
+        myMap.addMarker(8.3151511, 124.859322, "Near neri's store vegetable stand")
+        myMap.addMarker(8.3147288, 124.8592993, "Arcelo Street Food Stall")
+        myMap.addMarker(8.3101196, 124.8591758, "Carbellido Vegetable Stand")
+        myMap.addMarker(8.3072423, 124.8590452, "Salvo flower and Vegetable Farm")
+        myMap.addMarker(8.282098970943876, 124.87777535805515, "La vidad Farm House")
+        myMap.addMarker(8.2789151, 124.8814916, "Gabitano's Ginger and Cassava Farm")
+        myMap.addMarker(8.3146095, 124.8613711, "Gabilan Vegetable Stand")
+        myMap.addMarker(8.3145636, 124.860719, "Baliguat Vegetable Stand")
+        myMap.loadMarkersFromJson('map.json');
+</script>
+</section>
+<section id="services" class="min-vh-100 d-flex align-items-center text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 data-aos="fade-left" class="text-uppercase text-white fw-normal display-1">NEARBY VENDORS</h1>
+                <h5 class="text-white mt-3 mb-4" data-aos="fade-right">"On the map, here's some pinpoint location for local stores and street stall for fruit and vegetable."</h5>
+                <div data-aos="fade-up" data-aos-delay="50">
+                    <a href="#services" class="btn btn-brand-me-2">Get Started</a>
+                </div>
+            </div>
+        </div>
+        <!-- Applet Container -->
+        <div class="col-md-4">
+            <div class="service-card">
+                <h3></h3>
+                <p></p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

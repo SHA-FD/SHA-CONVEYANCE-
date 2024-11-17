@@ -1,0 +1,62 @@
+[
+    {
+        "latitude": 8.359735,
+        "longitude": 124.869206,
+        "message": "CCS Faculty Office"
+    },
+    {
+        "latitude": 8.359639,
+        "longitude": 124.869179,
+        "message": "CCS Laboratory 1"
+    },
+    {
+      "latitude":8.3779544, 
+      "Longitude": 124.935921,
+      "message": "kahada fruit stand"
+    },
+    {
+        "latitude": 8.359639,
+        "Longitude": 124.858727,
+        "Message": "Home"
+     },
+     {
+         "latitude": 8.310116,
+         "Longitude": 124.858972,
+         "Message": "Balay nila alliah shane"
+      },
+      {
+         "latitude": 8.313183,
+         "Longitude": 124.862080,
+         "Message": "Balay nila Haide"
+      },
+      {
+         "latitude": 8.317840,
+         "Longitude": 124.860649,
+         "Message": "Balay nila Jibson"
+      },
+    {
+        "latitude": 8.360219,
+        "longitude": 124.867465,
+        "message": "Student Centered New Building"
+    },
+    {
+        "latitude": 8.360118,
+        "longitude": 124.868904,
+        "message": "Covered court"
+    },
+    {
+        "latitude": 8.360123,
+        "longitude": 124.869306,
+        "message": "AVR"
+    },
+    {
+        "latitude": 8.359141,
+        "longitude": 124.868581,
+        "message": "BSBA Building"
+    },
+    {
+        "latitude": 8.359269,
+        "longitude": 124.867835,
+        "message": "Admin Building"
+    }
+]
