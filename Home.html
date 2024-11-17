@@ -125,8 +125,8 @@
             padding:2rem;
         }
         #about .image{
-            width: auto;
-            height: auto;
+            width: 20px;
+            height: 100px;
             justify-content: center;
         }
         #about .content{
@@ -162,7 +162,7 @@
                         <a class="nav-link" href="#services">SERVICES </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#reviews">REVIEWS</a>
+                        <a class="nav-link" href="#map">MAP</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">CONTACT</a>
@@ -171,9 +171,9 @@
                         <a class="nav-link" href="#tresdev">TRESDEV</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="LogOut.html">LOGOUT</a>
+                        <a class="nav-link" href="#reviews">REVIEWS</a>
                      <li class="nav-item">
-                        <a class="nav-link" href="#map">MAP</a>
+                        <a class="nav-link" href="logout.html">LOGOUT</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
@@ -210,7 +210,7 @@
      <section id="about" class="min-vh-100 d-flex align-items-center">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="col-md-6 d-flex align-items-center justify-content-center ">
                 </div>
                 <div class="image">
                   <img src="assets/image.png" alt="">
@@ -222,6 +222,26 @@
                     <div data-aos="fade-up" data-aos-delay="50">
                         <a href="#services" class="btn btn-brand-me-2">Learn more</a>
                            </section>
+                        </section>
+                        <section id="services" class="min-vh-100 d-flex align-items-center text-center">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h1 data-aos="fade-left" class="text-uppercase text-white fw-normal display-1">NEARBY VENDORS</h1>
+                                        <h5 class="text-white mt-3 mb-4" data-aos="fade-right">"On the map, here's some pinpoint location for local stores and street stall for fruit and vegetable."</h5>
+                                        <div data-aos="fade-up" data-aos-delay="50">
+                                            <a href="#map" class="btn btn-brand-me-2">Get Started</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Applet Container -->
+                                <div class="col-md-4">
+                                    <div class="service-card">
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                    </div>
+                                </section>
                                <section id="map" class="min-vh-100 d-flex align-items-center text-center">
         <div class="container">
             <div class="row">
@@ -282,25 +302,7 @@
         myMap.addMarker(8.3145636, 124.860719, "Baliguat Vegetable Stand")
         myMap.loadMarkersFromJson('map.json');
 </script>
-</section>
-<section id="services" class="min-vh-100 d-flex align-items-center text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 data-aos="fade-left" class="text-uppercase text-white fw-normal display-1">NEARBY VENDORS</h1>
-                <h5 class="text-white mt-3 mb-4" data-aos="fade-right">"On the map, here's some pinpoint location for local stores and street stall for fruit and vegetable."</h5>
-                <div data-aos="fade-up" data-aos-delay="50">
-                    <a href="#services" class="btn btn-brand-me-2">Get Started</a>
-                </div>
-            </div>
-        </div>
-        <!-- Applet Container -->
-        <div class="col-md-4">
-            <div class="service-card">
-                <h3></h3>
-                <p></p>
-            </div>
-            </div>
+</div>
         </div>
     </div>
 </section>
