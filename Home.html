@@ -124,20 +124,104 @@
             justify-content: space-between;
             padding:2rem;
         }
-        #about .image{
-            width: 20px;
-            height: 100px;
-            justify-content: center;
-        }
-        #about .content{
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 1rem;
-            font-weight: bold;
-            width: 60%;
-        }
-       
              
-              #about .image{            width: auto;            height: auto;            justify-content: center;        }        #about .content{          font-family: Arial, Helvetica, sans-serif;          font-size:1rem;          font-weight: bold;            width: 60%;        }
+#about .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#about .content {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 2rem; /* Add some padding for better spacing */
+}
+ #contact {
+ background-color: #222; /* Dark background for contrast */
+ padding: 50px 0; /* Padding for top and bottom */
+}
+
+h1 {
+    font-size: 2.5rem; /* Larger font size for the heading */
+}
+
+form {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 30px; /* Padding inside the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+.form-group label {
+    font-weight: bold; /* Bold labels */
+}
+
+.form-control {
+    border-radius: 5px; /* Rounded input fields */
+    border: 1px solid #007bff; /* Border color */
+    background-color: #333; /* Dark background for input fields */
+    color: #fff; /* White text color */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Change border color on focus */
+    background-color: #444; /* Darker background on focus */
+}
+
+.btn-brand-me-2 {
+    background-color: #007bff; /* Button color */
+    color: #fff; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.btn-brand-me-2:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+}
+/* TRESDEV Section Styles */
+#tresdev {
+    background-color: #222; /* Dark background for contrast */
+    padding: 50px 0; /* Padding for top and bottom */
+}
+
+#tresdev h1 {
+    font-size: 2.5rem; /* Larger font size for the heading */
+    margin-bottom: 30px; /* Space below the heading */
+}
+
+.card {
+    background-color: #333; /* Dark background for cards */
+    border: none; /* Remove card border */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth transform on hover */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge card on hover */
+}
+
+.card-img-top {
+    border-top-left-radius: 10px; /* Rounded corners for top image */
+    border-top-right-radius: 10px; /* Rounded corners for top image */
+}
+
+.card-body {
+    padding: 20px; /* Padding inside the card body */
+}
+
+.card-title {
+    font-size: 1.25rem; /* Font size for card titles */
+    font-weight: bold; /* Bold title */
+}
+
+.card-text {
+    font-size: 1rem; /* Font size for card text */
+    color: White; /* Lighter color for text */
+}
+              
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target=".navbar">
@@ -159,13 +243,10 @@
                         <a class="nav-link" href="#about">ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">SERVICES </a>
+                        <a class="nav-link" href="#services">SERVICES</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#map">MAP</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">CONTACT</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#tresdev">TRESDEV</a>
@@ -213,7 +294,7 @@
                 <div class="col-md-6 d-flex align-items-center justify-content-center ">
                 </div>
                 <div class="image">
-                  <img src="assets/image.png" alt="">
+                  <img src="/assets/images (2).jpeg" alt="">
                     <div class="content">
                       <h3>What make's SHA-CONVEYANCE special?</h3>
                       <p>SHA-CONVEYANCE is a platform that connects travelers and locals farmers and  street vendors selling seasonal fruits and  fresh produce vegetables. It features a directory of street stalls selling fruits and vegetables, and a grocery shop where local farmers can sell their freshly picked goods.  This makes it a convenient way to find delicious, healthy food while supporting local farmers.</p>
@@ -231,18 +312,18 @@
                                         <h5 class="text-white mt-3 mb-4" data-aos="fade-right">"On the map, here's some pinpoint location for local stores and street stall for fruit and vegetable."</h5>
                                         <div data-aos="fade-up" data-aos-delay="50">
                                             <a href="#map" class="btn btn-brand-me-2">Get Started</a>
-                                        </div>
+                             </div>
                                     </div>
                                 </div>
-                                <!-- Applet Container -->
+                <!-- Applet Container -->
                                 <div class="col-md-4">
                                     <div class="service-card">
-                                        <h3></h3>
-                                        <p></p>
+                           <h3></h3>
+                                <p></p>
                                     </div>
                                     </div>
-                                </section>
-                               <section id="map" class="min-vh-100 d-flex align-items-center text-center">
+                    </section>
+    <section id="map" class="min-vh-100 d-flex align-items-center text-center">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -306,6 +387,49 @@
         myMap.addMarker(8.2184152,124.8518445, "Dahilayan Pension House/Pasalubong Center")
         myMap.loadMarkersFromJson('map.json');
 </script>
+ </section>
+<section id="tresdev" class="min-vh-100 d-flex align-items-center text-center">
+    <div class="container">
+        <h1 class="text-uppercase text-white fw-normal display-1">MEET OUR TEAM</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="/assets/1730215462917.jpg" class="card-img-top" height="191px" alt="Salvo, Alliah Shane, R.">
+                    <div class="card-body">
+                        <h5 class="card-title">Salvo, Alliah Shane, R.</h5>
+                        <p class="card-text">The designer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="/assets/20240528225045587.jpg" class="card-img-top" height="191px" alt="LiLoan, Hiether Fhiona, L.">
+                    <div class="card-body">
+                        <h5 class="card-title">LiLoan, Hiether Fhiona, L.</h5>
+                        <p class="card-text">The developer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="/assets/1708100712639.jpg" class="card-img-top" height="191px" alt="Gabitano, Samantha, L.">
+                    <div class="card-body">
+                        <h5 class="card-title">Gabitano, Samantha, L.</h5>
+                        <p class="card-text">The Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+      </div>
+            </div>
+        </div>
+        </div>
+ 
+    </div>
 </div>
     </div>
 </section>
@@ -314,5 +438,6 @@
  </div>
         </div>
     </div>
+    <script src="login.js"></script>
 </body>
 </html>
