@@ -277,10 +277,7 @@ form {
                     <li class="nav-item">
                         <a class="nav-link" href="#tresdev">TRESDEV</a>
                     </li>
-                    <a class="nav-link" href="reviews">FEEDBACKS</a>
-                </li>
-                    </li>
-                        <a class="nav-link" href="logout.html">LOGOUT</a>
+                        <a class="nav-link" href="index.html">LOGOUT</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
@@ -290,8 +287,6 @@ form {
                             <li><a class="dropdown-item" href="#scrollspyHeading4">ABOUT</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#scrollspyHeading5">SERVICES</a></li>
-                            <li><a class="dropdown-item" href="#scrollspyheading6">REVIEWS</a></li>
-                            <li><a class="dropdown-item" href="#scrollspyheading7">CONTACT</a></li>
                             <li><a class="dropdown-item" href="#scrollspyheading8">TRESDEV</a></li>
                         <li><a class="dropdown-item" href="#scrollspyheading9">LOGOUT</a></li>
                         <li><a class="dropdown-item" href="#scrollspyheading10">Map</a></li>
@@ -329,11 +324,14 @@ form {
                     <div data-aos="fade-up" data-aos-delay="50">
                         <a href="#services" class="btn btn-brand-me-2">Learn more</a>
                            </section>
-                        </section>
-                        <section id="services" class="min-vh-100 d-flex align-items-center text-center">
+                        <section id="services" class="min-vh-100 d-flex align-items-center">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-md-6 d-flex align-items-center justify-content-center ">
+                                    </div>
+                                    <div class="image">
+                                      <img src="/assets/images (2).jpeg" alt="">
+                                        <div class="content">
                                         <h1 data-aos="fade-left" class="text-uppercase text-white fw-normal display-1">NEARBY VENDORS</h1>
                                         <h5 class="text-white mt-3 mb-4" data-aos="fade-right">"On the map, here's some pinpoint location for local stores and street stall for fruit and vegetable."</h5>
                                         <div data-aos="fade-up" data-aos-delay="50">
@@ -456,201 +454,6 @@ form {
             </div>
         </div>
     </div>
-</section>
-<section id="about" class="min-vh-100 d-flex align-items-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 d-flex align-items-center justify-content-center ">
-            </div>
-            <div class="image">
-              <img src="/assets/images (2).jpeg" alt="">
-                <div class="content">
-                    <div class="container mt-5" id="entries">
-                        <h1 class="mb-3">How was your experience in this website?</h1>                  
-<div class="input-group mb-3">
-    <select id="moodSelector" class="custom-select">
-      <option selected>Choose..</option>
-      <option value="Satisfied">Satisfied</option>
-      <option value="Not Satidfied">Not Satisfied</option>
-      <option value="Good">Good</option>
-      <option value="NeedImprovement">Need Improvement</option>
-      <option value="Disappointed">Disappointed</option>
-    </select>
-    <div class="input-group-append">
-      <button id="saveMood" class="btn btn-outline-secondary">
-        Save Mood
-      </button>
-    </div>
-  </div>
-
-  <!-- Feedback Message -->
-  <div id="feedbackMessage" class="mb-3" style="display: none;"></div>
-
-  <!-- Mood Log Section -->
-  <div id="moodLog" class="mt-3"></div>
-
-  <!-- Clear Mood Log Button -->
-  <div class="mt-3">
-    <button id="clearLog" class="btn btn-danger">Clear Mood Log</button>
-  </div>
-
-  <!-- Mood Bar Chart Section -->
-  <div id="chart-container" class="mt-5">
-    <h3>Mood Statistics</h3>
-    <canvas id="moodChart" width="400" height="200"></canvas>
-  </div>
-</div>
-
-<!-- Include Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-  // Initialize mood counts
-  const feedbackCounts = {
-   Satisfied:0,
-   NotSatisfied:0,
-   Good:0,
-   NeedImprovement:0,
-    Disappointed: 0,
-  };
-
-  // Initialize chart
-  const ctx = document.getElementById('moodChart').getContext('2d');
-  const moodLabels = Object.keys(moodCounts);
-  const moodColors = [
-    '#4caf50', '#4359b9', '#9c27b0', '#8BC34A', '#2811669f',
-    '#9E9E9E', '#B71C1C', '#795548', '#FFEB3B'
-  ];
-
-  let moodChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: moodLabels,
-      datasets: [{
-        label: 'Mood Count',
-        data: Object.values(moodCounts),
-        backgroundColor: moodColors,
-        borderColor: moodColors,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-
-  // Event listener to save mood
-  document.getElementById('saveMood').addEventListener('click', function () {
-    const moodSelector = document.getElementById('moodSelector');
-    const mood = moodSelector.value;
-    const feedbackMessage = document.getElementById('feedbackMessage');
-
-    // Data validation: Check if a valid mood is selected
-    if (!mood || mood === "" || moodSelector.selectedIndex === 0) {
-      alert("Please select a valid mood before saving.");
-      return;
-    }
-
-    const date = new Date();
-    const dateTime = date.toLocaleString(); // Captures current date and time
-
-    // Construct the mood entry
-    const moodEntry = { mood, dateTime };
-
-    // Fetch existing mood log from localStorage, or initialize an empty array if none exists
-    let moodLog = JSON.parse(localStorage.getItem('moodLog')) || [];
-
-    // Add the new mood entry to the mood log
-    moodLog.push(moodEntry);
-
-    // Save the updated mood log to localStorage
-    localStorage.setItem('moodLog', JSON.stringify(moodLog));
-
-    // Update mood count for chart
-    moodCounts[mood]++;
-    moodChart.data.datasets[0].data = Object.values(moodCounts);
-    moodChart.update(); // Update the chart
-
-    // Provide feedback and display the updated mood log
-    feedbackMessage.innerHTML = `Mood "${mood}" saved successfully at ${dateTime}`;
-    feedbackMessage.style.display = 'block';
-    setTimeout(() => { feedbackMessage.style.display = 'none'; }, 3000);
-
-    // Refresh the mood log display
-    displayMoodLog();
-  });
-
-  // Display mood log
-  function displayMoodLog() {
-    let moodLog = JSON.parse(localStorage.getItem('moodLog')) || [];
-    const moodLogContainer = document.getElementById('moodLog');
-    moodLogContainer.innerHTML = ''; // Clear existing entries
-
-    moodLog.forEach((entry, index) => {
-      const entryDiv = document.createElement('div');
-      entryDiv.classList.add('alert', 'alert-primary', 'd-flex', 'justify-content-between', 'align-items-center', 'mood-log-entry', 'fade-enter');
-      entryDiv.innerHTML = `<strong>Mood:</strong> ${entry.mood} <br> <strong>Time:</strong> ${entry.dateTime}`;
-
-      // Delete button with custom blue styling
-      const deleteBtn = document.createElement('button');
-      deleteBtn.innerHTML = 'Delete';
-      deleteBtn.classList.add('btn', 'btn-delete', 'btn-sm');
-      deleteBtn.addEventListener('click', function () { deleteMood(index); });
-      entryDiv.appendChild(deleteBtn);
-
-      moodLogContainer.appendChild(entryDiv);
-
-      // Add fade-in effect
-      setTimeout(() => entryDiv.classList.add('fade-enter-active'), 100);
-    });
-  }
-
-  // Delete mood entry
-  function deleteMood(index) {
-    let moodLog = JSON.parse(localStorage.getItem('moodLog')) || [];
-    const deletedMood = moodLog[index].mood;
-    moodLog.splice(index, 1); // Remove the mood entry at the specified index
-
-    // Update mood count for chart
-    moodCounts[deletedMood]--;
-    moodChart.data.datasets[0].data = Object.values(moodCounts);
-    moodChart.update(); // Update the chart
-
-    localStorage.setItem('moodLog', JSON.stringify(moodLog)); // Update localStorage
-    displayMoodLog(); // Refresh the displayed mood log
-  }
-
-  // Clear all mood log entries
-  document.getElementById('clearLog').addEventListener('click', function () {
-    if (confirm("Are you sure you want to clear all mood entries?")) {
-      localStorage.removeItem('moodLog');
-      for (let mood in moodCounts) {
-        moodCounts[mood] = 0; // Reset all mood counts
-      }
-      moodChart.data.datasets[0].data = Object.values(moodCounts);
-      moodChart.update(); // Update the chart
-      displayMoodLog(); // Refresh the displayed mood log after clearing
-    }
-  });
-
-  // Display mood log on initial load
-  document.addEventListener('DOMContentLoaded', function () {
-    displayMoodLog();
-    // Initialize mood counts from localStorage
-    let moodLog = JSON.parse(localStorage.getItem('moodLog')) || [];
-    moodLog.forEach(entry => {
-      moodCounts[entry.mood]++;
-    });
-    moodChart.data.datasets[0].data = Object.values(moodCounts);
-    moodChart.update(); // Update the chart
-  });
-</script>
-
 </section>
  </div>
  </div>
