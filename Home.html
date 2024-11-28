@@ -193,7 +193,7 @@ form {
 }
 
 .card {
-    background-color: #333; /* Dark background for cards */
+    background-color:white; /* Dark background for cards */
     border: none; /* Remove card border */
     border-radius: 10px; /* Rounded corners */
     transition: transform 0.3s ease; /* Smooth transform on hover */
@@ -204,6 +204,8 @@ form {
 }
 
 .card-img-top {
+    border-top: .5rem;
+    border-bottom: .5rem;
     border-top-left-radius: 10px; /* Rounded corners for top image */
     border-top-right-radius: 10px; /* Rounded corners for top image */
 }
@@ -213,13 +215,37 @@ form {
 }
 
 .card-title {
-    font-size: 1.25rem; /* Font size for card titles */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large; /* Font size for card titles */
     font-weight: bold; /* Bold title */
+    color: black;
 }
 
 .card-text {
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1rem; /* Font size for card text */
-    color: White; /* Lighter color for text */
+    color: black ; /* Lighter color for text */
+}
+.card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-image {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+    padding: 20px;
 }
               
     </style>
@@ -388,33 +414,39 @@ form {
         myMap.loadMarkersFromJson('map.json');
 </script>
  </section>
-<section id="tresdev" class="min-vh-100 d-flex align-items-center text-center">
+ <section id="tresdev" class="min-vh-100 d-flex align-items-center text-center">
     <div class="container">
         <h1 class="text-uppercase text-white fw-normal display-1">MEET OUR TEAM</h1>
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="assets/426593136_1311763512847267_645507433447961725_n.jpg" class="card-img-top" height="191px" alt="Salvo, Alliah Shane, R.">
+                    <div class="card-image">
+                        <img src="assets/426593136_1311763512847267_645507433447961725_n.jpg" class="img-fluid" alt="Salvo, Alliah Shane, R.">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Salvo, Alliah Shane, R.</h5>
-                        <p class="card-text">The designer</p>
+                        <p class="card-text">The Designer</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="" class="card-img-top" height="191px" alt="LiLoan, Hiether Fhiona, L.">
+                    <div class="card-image">
+                        <img src="assets/462644354_1087076582614379_832191242825911558_n.jpg" class="img-fluid" alt="LiLoan, Hiether Fhiona, L.">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">LiLoan, Hiether Fhiona, L.</h5>
-                        <p class="card-text">The developer</p>
+                        <p class="card-text">The Developer</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="/assets/1708100712639.jpg" class="card-img-top" height="191px" alt="Gabitano, Samantha, L.">
+                    <div class="card-image">
+                        <img src="assets/462648900_9058098934210594_8337870456261349330_n.jpg" class="img-fluid" alt="Gabitano, Samantha, L.">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Gabitano, Samantha, L.</h5>
                         <p class="card-text">The Developer</p>
@@ -424,19 +456,122 @@ form {
         </div>
     </div>
 </section>
-      </div>
+<section id="reviews" class="min-vh-100 d-flex align-items-center text-center">
+    <div class="container">
+        <h1 class="text-uppercase text-white fw-normal display-1">REVIEWS</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="mb-3">How was your experience with this map?</h2>
+
+                <!-- Mood Selection Section -->
+                <div class="input-group mb-3">
+                    <select id="moodSelector" class="form-select">
+                        <option selected>Choose...</option>
+                        <option value="Satisfied">Satisfied</option>
+                        <option value="Not Satisfied">Not Satisfied</option>
+                        <option value="Need Improvement">Need Improvement</option>
+                        <option value="Good">Good</option>
+                        <option value="Disappointed">Disappointed</option>
+                    </select>
+                    <button id="save" class="btn btn-outline-secondary">Save</button>
+                </div>
+
+                <!-- Feedback Message -->
+                <div id="feedbackMessage" class="mb-3" style="display: none;"></div>
+
+                <!-- Mood Log Section -->
+                <div id="moodLog" class="mt-3"></div>
+
+                <!-- Clear Mood Log Button -->
+                <div class="mt-3">
+                    <button id="clearLog" class="btn btn-danger">Clear</button>
+                </div>
+
+                <!-- Mood Bar Chart Section -->
+                <div id="chart-container" class="mt-5">
+                    <h3>USER'S FEEDBACK</h3>
+                    <canvas id="moodChart" width="400" height="200"></canvas>
+                </div>
             </div>
         </div>
-        </div>
- 
     </div>
-</div>
-    </div>
-</section>
- </div>
- </section>
- </div>
-        </div>
+
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Initialize mood counts
+        const moodCounts = {
+            Satisfied: 0,
+            NotSatisfied: 0,
+            NeedImprovement: 0,
+            Good: 0,
+            Disappointed: 0,
+        };
+
+        // Initialize chart
+        const ctx = document.getElementById('moodChart').getContext('2d');
+        const moodLabels = Object.keys(moodCounts);
+        const moodColors = ['#4caf50', '#f44336', '#ff9800', '#2196F3', '#9c27b0'];
+
+        let moodChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: moodLabels,
+                datasets: [{
+                    label: 'Mood Count',
+                    data: Object.values(moodCounts),
+                    backgroundColor: moodColors,
+                    borderColor: moodColors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Event listener to save mood
+        document.getElementById('save').addEventListener('click', function () {
+            const moodSelector = document.getElementById('moodSelector');
+            const mood = moodSelector.value;
+            const feedbackMessage = document.getElementById('feedbackMessage');
+
+            // Data validation: Check if a valid mood is selected
+            if (!mood || mood === "" || moodSelector.selectedIndex === 0) {
+                alert("Please select a valid mood before saving.");
+                return;
+            }
+
+            const date = new Date();
+            const dateTime = date.toLocaleString(); // Captures current date and time
+
+            // Construct the mood entry
+            const moodEntry = { mood, dateTime };
+
+            // Fetch existing mood log from localStorage, or initialize an empty array if none exists
+            let moodLog = JSON.parse(localStorage.getItem('moodLog')) || [];
+
+            // Add the new mood entry to the mood log
+            moodLog.push(moodEntry);
+
+            // Save the updated mood log to localStorage
+            localStorage.setItem('moodLog', JSON.stringify(moodLog));
+
+            // Update mood count for chart
+            moodCounts[mood]++;
+            moodChart.data.datasets[0].data = Object.values(moodCounts);
+            moodChart.update(); // Update the chart
+
+            // Provide feedback and display the updated mood log
+            feedbackMessage.innerHTML = `Mood "${mood}" saved successfully at ${dateTime}`;
+            feedbackMessage.style.display = 'block';
+            setTimeout(() => { feedback}
     </div>
     <script src="login.js"></script>
 </body>
