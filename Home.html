@@ -115,6 +115,7 @@
         }
         #about{
             background-image: url('assets/liquid-cheese.svg');
+            background-repeat: no-repeat;
             font-size: xx-large;
             font-weight: bold;
             font-family: Arial, Helvetica, sans-serif;
@@ -135,22 +136,52 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    padding: 2rem; /* Add some padding for better spacing */
+    padding: .5rem; /* Add some padding for better spacing */
 }
  #services{
     background-image: url('assets/liquid-cheese.svg');
-            font-size: xx-large;
-            font-weight: bold;
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            padding:2rem;
+    background-repeat: no-repeat;
+     font-size: xx-large;
+    font-weight: bold;
+     font-family: Arial, Helvetica, sans-serif;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+    justify-content: space-between;
+    padding:2rem;
  }
 /* TRESDEV Section Styles */
+#tresdev .card {
+    width: auto; /* Smaller width for the cards */
+    margin: 10px; /* Reduced margin between cards */
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+#tresdev .card img {
+    width: 100%; /* Ensure the image fills the card width */
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#tresdev .card-body {
+    padding: 10px; /* Less padding to reduce space inside the card */
+}
+
+#tresdev .card-title {
+    font-size: 1.25rem; /* Slightly smaller font size for titles */
+}
+
+#tresdev .card-text {
+    font-size: 1rem; /* Consistent font size for text */
+}
+
 #tresdev {
-    background-color: #222; /* Dark background for contrast */
+    background-image: url('assets/liquid-cheese.svg');
     padding: 50px 0; /* Padding for top and bottom */
 }
 
@@ -160,6 +191,7 @@
 }
 
 .card {
+    width: auto;
     background-color:white; /* Dark background for cards */
     border: none; /* Remove card border */
     border-radius: 10px; /* Rounded corners */
@@ -178,7 +210,7 @@
 }
 
 .card-body {
-    padding: 20px; /* Padding inside the card body */
+    padding: 10px; /* Padding inside the card body */
 }
 
 .card-title {
@@ -201,6 +233,9 @@
 }
 
 .card-image {
+    height: auto;
+    width: auto;
+    justify-content: center;
     padding: 20px;
     text-align: center;
 }
