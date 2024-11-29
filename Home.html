@@ -249,6 +249,71 @@
 .card-body {
     padding: 20px;
 }
+#user-reviews {
+  padding: 50px 0;
+}
+
+#user-reviews .section-title {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.chart-container {
+  position: relative;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.chart-description {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+.review-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.review-card:hover {
+  transform: scale(1.05);
+}
+
+.reviewer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviewer-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.reviewer-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.reviewer-location {
+  font-size: 1rem;
+  color: #777;
+}
+
+.review-text {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 15px;
+  font-style: italic;
+}
+
               
     </style>
 </head>
@@ -277,7 +342,10 @@
                         <a class="nav-link" href="#map">MAP</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#tresdev">TRESDEV</a>
+                        <a class="nav-link" href="#reviews">FEEDBACK</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">TRESDEV</a>
                     </li>
                         <a class="nav-link" href="index.html">LOGOUT</a>
                     </li>
@@ -290,8 +358,9 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#scrollspyHeading5">SERVICES</a></li>
                             <li><a class="dropdown-item" href="#scrollspyheading8">TRESDEV</a></li>
-                        <li><a class="dropdown-item" href="#scrollspyheading9">LOGOUT</a></li>
-                        <li><a class="dropdown-item" href="#scrollspyheading10">MAP</a></li>
+                            <li><a class="dropdown-item" href="#scrollspyheading9">FEEDBACK</a></li>
+                        <li><a class="dropdown-item" href="#scrollspyheading10">LOGOUT</a></li>
+                        <li><a class="dropdown-item" href="#scrollspyheading11">LOGOUT</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -451,6 +520,98 @@
             </div>
         </div>
     </div>
+</section>
+<section id="reviews" class="container">
+    <h2 class="section-title text-center mb-4">What Our Customers Are Saying</h2>
+  
+    <!-- Doughnut chart section -->
+    <div class="chart-container text-center mb-5">
+      <canvas id="ratingChart" width="200" height="200"></canvas>
+      <p class="chart-description">Average Customer Rating</p>
+    </div>
+  
+    <!-- Reviews Section -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="review-card">
+          <div class="reviewer-info d-flex align-items-center mb-3">
+            <img src="https://via.placeholder.com/50" alt="Customer" class="reviewer-img rounded-circle mr-3">
+            <div>
+              <h5 class="reviewer-name">John Doe</h5>
+              <p class="reviewer-location">New York, USA</p>
+            </div>
+          </div>
+          <p class="review-text">"Great service! The product quality was excellent, and I am completely satisfied with my purchase. Highly recommend!"</p>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="review-card">
+          <div class="reviewer-info d-flex align-items-center mb-3">
+            <img src="https://via.placeholder.com/50" alt="Customer" class="reviewer-img rounded-circle mr-3">
+            <div>
+              <h5 class="reviewer-name">Jane Smith</h5>
+              <p class="reviewer-location">Los Angeles, CA</p>
+            </div>
+          </div>
+          <p class="review-text">"Very satisfied with the product and the service. Will definitely order again. 5 stars from me!"</p>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="review-card">
+          <div class="reviewer-info d-flex align-items-center mb-3">
+            <img src="https://via.placeholder.com/50" alt="Customer" class="reviewer-img rounded-circle mr-3">
+            <div>
+              <h5 class="reviewer-name">Carlos Ramirez</h5>
+              <p class="reviewer-location">Miami, FL</p>
+            </div>
+          </div>
+          <p class="review-text">"The team was very helpful, and the product exceeded my expectations. I will be a returning customer!"</p>
+        </div>
+      </div>
+    </div>  
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Data for the doughnut chart (Example: Ratings distribution)
+  const data = {
+    labels: ['Satisfied', 'Not Satisfied', 'Good', 'Need Improvement', 'Dissapointed'],
+    datasets: [{
+      data: [60, 25, 40, 20, 10], // Example percentages for each rating category
+      backgroundColor: ['#4caf50', '#ffeb3b', '#ff9800', '#f44336', '#9e9e9e'],
+      borderWidth: 1,
+    }]
+  };
+
+  // Options for the chart (center the percentage value)
+  const options = {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function(tooltipItem) {
+            return tooltipItem.raw + '%'; // Display percentage on hover
+          }
+        }
+      },
+      legend: {
+        position: 'top',
+        labels: {
+          fontSize: 14,
+        }
+      }
+    },
+    responsive: true,
+    cutout: '70%', // Makes the chart doughnut-shaped
+  };
+
+  // Initialize the chart
+  const ctx = document.getElementById('ratingChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: data,
+    options: options,
+  });
+</script>
 </section>
  </div>
  </div>
