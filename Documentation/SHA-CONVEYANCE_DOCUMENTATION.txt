@@ -1,0 +1,47 @@
+
+
+SHA-CONVEYANCE: Your Guide to Fresh, Seasonal Fruits to eat.
+
+
+Introduction
+
+Welcome to SHA-CONVEYANCE, your ultimate digital guide to navigating the vibrant world of street stalls!
+ Whether you're an adventurous foodie seeking the best local eats or a shopper on the hunt for unique goods, 
+SHA-CONVEYANCE is here to help you discover and locate street stalls with ease. 
+
+SHA-CONVEYANCE is a user-friendly street map designed to connect you with the freshest seasonal fruits and farm-fresh vegetables.
+We've built this platform to help you easily locate locaal farmers and street stall vendors in your area. Forget endless searching.
+ SHA-CONVEYANCE puts the power of discovery at your fingertips.
+
+
+
+Here's The Benefits of SHA-CONVEYANCE:
+
+-Support Local Businesses: Connect directly with local farmers and Vendors, supporting your community and enjoying fresh, high-quality produce.
+-Discover Seasonal Delights: Explore a wider variety of fruits and vegetables based of the current season.
+-Save Time and Effort: Easily locate nearby vendors,eliminating the hassle of searching for fresh produce.
+-Community Connection: Discover hidden gems and connect with the heart of your community's food scene.
+
+
+Features and Design Rationale:
+
+1. Street Map:
+A street map to easily locate thre pinpoint location of ther street vendors in nearby baranggay or city.
+
+2. User's Feedback:
+A feedback for us to know if your satisfied with our website or dissapointed.
+
+
+Conclusion:
+
+SHA-CONVEYANCE is more than just a map—it's your gateway to a world of fresh, seasonal produce and vibrant local food culture. 
+By connecting you directly with local farmers and street vendors, we help support small businesses while offering you the convenience of easily finding the freshest fruits, vegetables, and snacks in your area. Whether you're a local resident or a traveler exploring a new neighborhood, SHA-CONVEYANCE ensures that you can discover high-quality, farm-fresh goods at your fingertips.
+
+Our mission is to eliminate the hassle of searching for street stalls and provide a seamless, user-friendly platform that empowers you to explore and connect with the best local vendors. 
+We’re committed to enhancing your street market experience, helping you save time, and giving you more opportunities to support the community.
+
+We value your feedback and invite you to share your thoughts with us—whether you’re satisfied or have suggestions for improvement. 
+Together, we can continue to make SHA-CONVEYANCE the best resource for discovering and enjoying fresh, seasonal fruits, vegetables, and local delicacies.
+
+Thank you for using SHA-CONVEYANCE—your personal guide to a world of flavor, freshness, and community!
+
